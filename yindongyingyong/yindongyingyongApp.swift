@@ -12,7 +12,7 @@ struct yindongyingyongApp: App {
     @StateObject var DataModel = Model()
     var body: some Scene {
         WindowGroup {
-            ContentViewMe()
+            MainView()
                 .environmentObject(DataModel)
         }
     }

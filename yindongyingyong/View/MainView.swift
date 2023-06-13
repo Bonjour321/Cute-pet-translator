@@ -12,21 +12,30 @@ enum ViewStation: String{
 }
 
 struct MainView: View {
-    @State var station: ViewStation = ViewStation.Me
+    @State var station: ViewStation = ViewStation.Home
+    @EnvironmentObject var dataModel: Model
     var body: some View {
-        Text("abc")
-//        switch(station){
-//            case .Me: ContentViewMe()
-//        case .Home: break
-//            //
-//        case .Setting: break
-//            //
-//        }
+        HStack{
+            switch station{
+            case .Home:
+                ContentViewMe()
+                    .environmentObject(dataModel)
+            case .Me:
+                MeView()
+            case .Setting:
+                Text("abc")
+            }
+        }
+        .overlay {
+            TabBar(station: $station)
+        }
+        .frame(width: .infinity,height: .infinity)
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(Model())
     }
 }

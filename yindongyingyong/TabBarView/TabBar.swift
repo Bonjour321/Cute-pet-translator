@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBar: View {
+    @Binding var station: ViewStation
     var body: some View {
         VStack{
             GeometryReader{ proxy in
@@ -15,19 +16,19 @@ struct TabBar: View {
                     HStack{
                         Spacer()
                         Button {
-                            //
+                            station = .Me
                         } label: {
                             TabBarItem(systemName: "person.circle", text: "Me")
                         }
                         Spacer()
                         Button{
-                            //
+                            station = .Home
                         }label: {
                             TabBarItem(systemName: "house", text: "Home")
                         }
                         Spacer()
                         Button{
-                            //
+                            station = .Setting
                         }label: {
                             TabBarItem(systemName: "gearshape", text: "Setting")
                         }
@@ -50,6 +51,6 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        TabBar(station: .constant(.Home))
     }
 }

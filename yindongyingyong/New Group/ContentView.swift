@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Metal
 
 
 struct ContentViewMe: View {
@@ -43,7 +44,6 @@ struct ContentViewMe: View {
                 .ignoresSafeArea()
                 .background(Image("Background"))
             }
-            TabBar()
         }
     }
 }

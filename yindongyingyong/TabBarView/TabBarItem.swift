@@ -16,6 +16,7 @@ struct TabBarItem: View {
             Text(text)
                 .foregroundColor(.primary)
                 .font(.footnote)
+                .bold()
         }
         .frame(width: 100)
     }
